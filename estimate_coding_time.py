@@ -5,8 +5,7 @@ from datetime import datetime
 # --- CONFIGURATIONS ---
 MAX_GAP_MINUTES = 90  # If commits are within 90 minutes, assume they belong to the same 'coding session'
 TIME_PER_LINE_MINUTES = 0.02  # Rough estimate: 1 line might take ~1.2 seconds (0.02 minutes)
-PRE_COMMIT_LINE_FACTOR = 0.5  # We'll assume we spent half the total lines' time before the 1st commit
-                            # This is purely a heuristic, adjust as you see fit
+PRE_COMMIT_LINE_FACTOR = 1  # This is purely a heuristic, adjust as you see fit. 1 guestimates the time based on all lines changed since the last commit.
 
 def get_git_commit_data():
     """
